@@ -1,7 +1,14 @@
 -- Active: 1665046349126@@127.0.0.1@3306@cvven
 
+/* ATTENTION!!!!! 
+Cette partie est a mettre que quand vous êtes connecter à la base de donnée stocker sur le serveur d'Elyas.
+*/
+
+-- CREATE DATABASE IF NOT EXISTS CVVEN;
+-- USE CVVEN;
+
 CREATE TABLE IF NOT EXISTS Client(
-   id_client AUTO_INCREMENT INT, 
+   id_client INT AUTO_INCREMENT, 
    nom VARCHAR(50),
    prenom VARCHAR(50),
    adresse VARCHAR(50),
@@ -41,7 +48,7 @@ CREATE TABLE IF NOT EXISTS Categorie(
    PRIMARY KEY(id_categ)
 );
 
-CREATE TABLE Réservation(
+CREATE TABLE IF NOT EXISTS Réservation(
    id_reserva INT,
    reponse VARCHAR(50),
    nb_places INT,
@@ -55,7 +62,7 @@ CREATE TABLE Réservation(
    FOREIGN KEY(id_client) REFERENCES Client(id_client)
 );
 
-CREATE TABLE Hebergement(
+CREATE TABLE IF NOT EXISTS Hebergement(
    num_chambres INT,
    capacité DECIMAL(15,2),
    pieces VARCHAR(50),
@@ -67,7 +74,7 @@ CREATE TABLE Hebergement(
    FOREIGN KEY(id_reserva) REFERENCES Réservation(id_reserva)
 );
 
-CREATE TABLE possède(
+CREATE TABLE IF NOT EXISTS possède(
    codeHotel INT,
    num_chambres INT,
    PRIMARY KEY(codeHotel, num_chambres),
@@ -75,7 +82,7 @@ CREATE TABLE possède(
    FOREIGN KEY(num_chambres) REFERENCES Hebergement(num_chambres)
 );
 
-CREATE TABLE contient(
+CREATE TABLE IF NOT EXISTS contient(
    id_paiement INT,
    id_serv VARCHAR(50),
    PRIMARY KEY(id_paiement, id_serv),
@@ -86,5 +93,5 @@ CREATE TABLE contient(
 
 
 
-INSERT INTO `client` (`id_client`, `nom`, `prenom`, `adresse`, `tel`, `login`, `mdp`) 
-VALUES ('', 'michel', 'sardou', '14 boulevard du sardou', '0707070707', 'sardou.michel', MD5('sardou'));
+INSERT INTO `Client` (`nom`, `prenom`, `adresse`, `tel`, `login`, `mdp`) 
+VALUES ('michel', 'sardou', '14 boulevard du sardou', '0707070707', 'sardou.michel', MD5('sardou'));
