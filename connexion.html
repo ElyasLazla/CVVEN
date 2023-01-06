@@ -4,77 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <title> Login </title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-  <div class="container">
-    <div class="title">Connectez-vous</div>
+  <div class="bg-img">
     <div class="content">
+      <header>Connectez-vous</header>
       <form action="#">
-        <div class="user-details">
-          <div class="input-box">
-            <span class="details">Identifiant</span>
-            <input type="text" placeholder="Entrer votre Identifiant" required>
-          </div>
-          <div class="input-box">
-          
-            <span class="details">Mot de passe</span>
-            <input type="text" placeholder="Entrer votre mot de passe" required>
-      
+        <div class="field">
+          <span class="fa fa-user"></span>
+          <input type="text" required placeholder="Email or Phone">
         </div>
-        <div class="button">
+        <div class="field space">
+          <span class="fa fa-lock"></span>
+          <input type="password" class="password" required placeholder="Password">
+
+        </div>
+        <div class="pass">
+          <a href="motdepasse.html">Mot de passe oublié?</a>
+        </div>
+        <div class="field">
           <input type="submit" value="Connexion">
         </div>
-        
-    
-
+        <div class="signup">Pas de compte?
+          <a href="inscription.html">Inscrivez-vous</a>
+        </div>
       </form>
     </div>
-    <a href="#">Mot de passe oublié?</a><br>
-    <a href="inscription.html">Pas de compte? Créer en un</a>
-  </div>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-<!--<!DOCTYPE html>
-<html>
-
-<head>
-  <title> Login </title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <div class="login-box">
-
-    <h1>Connectez-vous</h1>
-    <form>
-      <p>Utilisateur</p>
-      <input type="text" name="username" placeholder="Entrez votre Utilisateur">
-      <p>Mot de passe</p>
-      <input type="password" name="password" placeholder="Entrez votre Mot de passe">
-      <input type="submit" name="submit" value="Connexion"><br>
-
-      <label class="checkbox-wrap checkbox-primary">Se souvenir de moi
-        <span class="checkmark"></span>
-      </label>
-
-
-      <a href="#">Mot de passe oublié?</a><br>
-      <a href="#">Pas de compte? Créer en un</a>
-
-    </form>
