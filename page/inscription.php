@@ -1,6 +1,17 @@
 <?php
 
-require "./module/connectDB.php";
+require "../module/connectDB.php";
+/* include('../module/config.php'); */
+
+$loginButton = '';
+
+/* if (!isset($SESSION['access_token'])) {
+    $login_button = '<a type="button" class="login-with-google-btn" href="'.$googleClient->createAuthUrl().'">
+    Sign in with Google</a>';
+}
+else{
+    header('Location: /index.php');
+} */
 
 $msgErr = "false";
 $input = "false";
@@ -86,11 +97,11 @@ if (isset($_POST["submit1"])) {
               <span class="details">Nom</span>
 
               <?php if ($input == "firstname") { ?>
-                <input type="text" placeholder="Entrer votre nom" name="firstname" style="border: 3px solid red;">
+                <input type="text" placeholder="Entrez votre nom" name="firstname" style="border: 3px solid red;">
                 <p style="color: red; background: rgba(0, 0, 0, 0.30);"><?php echo $msgErr; ?></p>
 
               <?php } else { ?>
-                <input type="text" placeholder="Entrer votre nom" name="firstname">
+                <input type="text" placeholder="Entrez votre nom" name="firstname">
               <?php } ?>
             </div>
 
@@ -98,35 +109,35 @@ if (isset($_POST["submit1"])) {
               <span class="details">Prénom</span>
 
               <?php if ($input == "lastname") { ?>
-                <input type="text" placeholder="Entrer votre prénom" name="lastname" style="border: 3px solid red;">
+                <input type="text" placeholder="Entrez votre prénom" name="lastname" style="border: 3px solid red;">
                 <p style="color: red; background: rgba(0, 0, 0, 0.30);"><?php echo $msgErr; ?></p>
 
               <?php } else { ?>
-                <input type="text" placeholder="Entrer votre prénom" name="lastname">
+                <input type="text" placeholder="Entrez votre prénom" name="lastname">
               <?php } ?>
             </div>
 
             <div class="input-box">
-              <span class="details">Utilisateur</span>
+              <span class="details">Nom d'utilisateur</span>
 
               <?php if ($input == "username") { ?>
-                <input type="text" placeholder="Entrer votre nom d'utilisateur" name="username" style="border: 3px solid red;">
+                <input type="text" placeholder="Entrez votre nom d'utilisateur" name="username" style="border: 3px solid red;">
                 <p style="color: red; background: rgba(0, 0, 0, 0.30);"><?php echo $msgErr; ?></p>
 
               <?php } else { ?>
-                <input type="text" placeholder="Entrer votre nom d'utilisateur" name="username">
+                <input type="text" placeholder="Entrez votre nom d'utilisateur" name="username">
               <?php } ?>
             </div>
 
             <div class="input-box">
-              <span class="details">Email</span>
+              <span class="details">E-mail</span>
 
               <?php if ($input == "email") { ?>
-                <input type="text" placeholder="Entrer votre email" name="email" style="border: 3px solid red;">
+                <input type="text" placeholder="Entrez votre e-mail" name="email" style="border: 3px solid red;">
                 <p style="color: red; background: rgba(0, 0, 0, 0.30);"><?php echo $msgErr; ?></p>
 
               <?php } else { ?>
-                <input type="text" placeholder="Entrer votre email" name="email">
+                <input type="text" placeholder="Entrez votre e-mail" name="email">
               <?php } ?>
 
             </div>
@@ -135,11 +146,11 @@ if (isset($_POST["submit1"])) {
               <span class="details">Téléphone</span>
 
               <?php if ($input == "phone") { ?>
-                <input type="text" placeholder="Entrer votre numéro" name="phone" style="border: 3px solid red;">
+                <input type="text" placeholder="Entrez votre numéro" name="phone" style="border: 3px solid red;">
                 <p style="color: red; background: rgba(0, 0, 0, 0.30);"><?php echo $msgErr; ?></p>
 
               <?php } else { ?>
-                <input type="text" placeholder="Entrer votre numéro" name="phone">
+                <input type="text" placeholder="Entrez votre numéro" name="phone">
               <?php } ?>
 
             </div>
@@ -148,11 +159,11 @@ if (isset($_POST["submit1"])) {
               <span class="details">Adresse</span>
 
               <?php if ($input == "address") { ?>
-                <input type="text" placeholder="Entrer votre adresse" name="address" style="border: 3px solid red;">
+                <input type="text" placeholder="Entrez votre adresse" name="address" style="border: 3px solid red;">
                 <p style="color: red; background: rgba(0, 0, 0, 0.30);"><?php echo $msgErr; ?></p>
 
               <?php } else { ?>
-                <input type="text" placeholder="Entrer votre adresse" name="address">
+                <input type="text" placeholder="Entrez votre adresse" name="address">
               <?php } ?>
             </div>
 
@@ -160,11 +171,11 @@ if (isset($_POST["submit1"])) {
               <span class="details">Mot de passe</span>
 
               <?php if ($input == "password1" || $input == "password") { ?>
-                <input type="text" placeholder="Entrer votre mot de passe" name="mdp1" style="border: 3px solid red;">
+                <input type="password" placeholder="Entrez votre mot de passe" name="mdp1" style="border: 3px solid red;">
                 <p style="color: red; background: rgba(0, 0, 0, 0.30);"><?php echo $msgErr; ?></p>
 
               <?php } else { ?>
-                <input type="text" placeholder="Entrer votre mot de passe" name="mdp1">
+                <input type="password" placeholder="Entrez votre mot de passe" name="mdp1">
               <?php } ?>
             </div>
 
@@ -172,20 +183,26 @@ if (isset($_POST["submit1"])) {
               <span class="details">Confirmer le mot de passe</span>
 
               <?php if ($input == "password2" || $input == "password") { ?>
-                <input type="text" placeholder="Confirmer votre mot de passe" name="mdp2" style="border: 3px solid red;">
+                <input type="password" placeholder="Confirmez votre mot de passe" name="mdp2" style="border: 3px solid red;">
                 <p style="color: red; background: rgba(0, 0, 0, 0.30);"><?php echo $msgErr; ?></p>
 
               <?php } else { ?>
-                <input type="text" placeholder="Confirmer votre mot de passe" name="mdp2">
+                <input type="password" placeholder="Confirmez votre mot de passe" name="mdp2">
               <?php } ?>
             </div>
 
           </div>
 
           <div class="button">
-            <input type="submit" value="Creer mon compte" name="submit1">
+            <input type="submit" value="Créer mon compte" name="submit1">
           </div>
-          <a href="connexion.html">Dejà un compte? Cliquez-ici</a><br>
+          <div class="button">
+            <a href="login.php">Dejà un compte? Cliquez-ici</a>
+<!--             <div class="_contain_btn_Google">
+            <?php /* echo $login_button */ ?> 
+            </div> -->
+          </div>
+          
         </form>
 
       </div>

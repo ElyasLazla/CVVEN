@@ -1,12 +1,12 @@
 <?php
-require "./module/connectDB.php";
+require "../module/connectDB.php";
 $messageError = 0;
 if (isset($_POST['Connexion'])) {
 
   $query = $DB->prepare("SELECT * FROM Client WHERE login = ? AND mdp = ?");
   $query->execute([$_POST['login'], hash("sha256", $_POST['password'])]);
   $user = $query->fetch();
-  if ($user && hash("sha256", $_POST['password']) == $user['mdp']) header("location:home.php");
+  if ($user && hash("sha256", $_POST['password']) == $user['mdp']) header("location:/index.php");
   else $messageError = "Identifiant invalid!";
 }
 ?>
@@ -35,20 +35,21 @@ if (isset($_POST['Connexion'])) {
         <input type="password" class="password" placeholder="Password" name="password" required>
 
       </div>
-      <div class="pass">
+<!--       <div class="pass">
         <a href="motdepasse.html">Mot de passe oublié?</a>
-      </div>
+      </div> -->
       <div class="field">
         <input type="submit" value="Connexion" name="Connexion">
       </div>
       <div class="signup">Pas de compte?
-        <a href="inscription.html">Inscrivez-vous</a>
+        <a href="inscription.php">Inscrivez-vous</a>
       </div>
       <div class='error'>
       <?php
         if ($messageError) printf($messageError);
       ?>
       </div>
+
     </form>
   </div>
 
