@@ -1,0 +1,18 @@
+$stmt -> bindParam(":dateStart", $dateStart);
+$stmt -> bindParam(":dateEnd", $dateEnd);
+$stmt -> bindParam(":nb_adult", $nb_adult);
+$stmt -> bindParam(":nb_enfant", $nb_enfant);
+$stmt->execute();
+
+
+
+$dateStart = $_POST['dateStart'];
+        $dateEnd = $_POST['dateEnd'];
+        $nb_adult = $_POST['nb_adult'];
+        $nb_enfant = $_POST['nb_enfant'];
+
+
+
+
+INSERT INTO `Réservation`(`dateStart`, `dateEnd`, `nb_adult`, `nb_enfant`) 
+                VALUES (:dateStart, :dateEnd, :nb_adult, :nb_enfant)
