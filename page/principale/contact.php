@@ -1,9 +1,13 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="fr">
 
 <head>
     <meta charset="utf-8">
-    <title>Titre de la page</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="../asset/style/contact.css">
     <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/b286cf6c9c.js" crossorigin="anonymous"></script>
@@ -19,13 +23,17 @@
             </div>
 
             <ul class="nav_links">
-                <li class="liste"><a class="link" href="PageAccueil.php">Accueil</a></li>
-                <li class="liste"><a class="link" href="contact.php">Contact</a></li>
-                <li class="liste"><a class="link" href="about.php">À propos</a></li>
+                <li class="liste"><a class="link" href="./accueil.php">Accueil</a></li>
+                <li class="liste"><a class="link" href="./contact.php">Contact</a></li>
+                <li class="liste"><a class="link" href="./about.php">À propos</a></li>
             </ul>
         </nav>
 
-        <a class="cta" href="#"><button class="bouton">Connexion</button></a>
+        <?php if (!isset($_SESSION["isLogin"])) : ?>
+            <a class="cta" href="../auth/connexion.php"><button class="bouton">Connexion</button></a>
+        <?php else : ?>
+            <a class="cta" href="../auth/deconnexion.php"><button class="bouton">Déconnexion</button></a>
+        <?php endif ?>
     </header>
 
 

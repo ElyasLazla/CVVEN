@@ -29,9 +29,9 @@ session_start();
         <a href="accueil.php">CVVEN</a>
       </div>
       <ul class="nav_links">
-        <li class="liste"><a class="link" href="PageAccueil.php">Accueil</a></li>
-        <li class="liste"><a class="link" href="contact.php">Contact</a></li>
-        <li class="liste"><a class="link" href="about.php">À propos</a></li>
+        <li class="liste"><a class="link" href="./accueil.php">Accueil</a></li>
+        <li class="liste"><a class="link" href="./contact.php">Contact</a></li>
+        <li class="liste"><a class="link" href="./about.php">À propos</a></li>
       </ul>
     </nav>
 

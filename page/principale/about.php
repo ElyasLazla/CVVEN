@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -5,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titre de la page</title>
+    <title>A propos</title>
     <link rel="stylesheet" href="../asset/style/about.css">
     <script src="script.js"></script>
 </head>
@@ -19,13 +23,17 @@
                 <a href="accueil.php">CVVEN</a>
             </div>
             <ul class="nav_links">
-                <li class="liste"><a class="link" href="PageAccueil.php">Accueil</a></li>
-                <li class="liste"><a class="link" href="contact.php">Contact</a></li>
-                <li class="liste"><a class="link" href="about.php">À propos</a></li>
+                <li class="liste"><a class="link" href="./accueil.php">Accueil</a></li>
+                <li class="liste"><a class="link" href="./contact.php">Contact</a></li>
+                <li class="liste"><a class="link" href="./about.php">À propos</a></li>
             </ul>
         </nav>
 
-        <a class="cta" href="#"><button class="bouton">Connexion</button></a>
+        <?php if (!isset($_SESSION["isLogin"])) : ?>
+            <a class="cta" href="../auth/connexion.php"><button class="bouton">Connexion</button></a>
+        <?php else : ?>
+            <a class="cta" href="../auth/deconnexion.php"><button class="bouton">Déconnexion</button></a>
+        <?php endif ?>
     </header>
 
     <section id="about-info" class="bg-light py-3">

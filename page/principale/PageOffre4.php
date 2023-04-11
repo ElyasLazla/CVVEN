@@ -31,9 +31,9 @@ session_start();
       </div>
       <img src="" alt="" class="logo">
       <ul class="nav_links">
-        <li class="liste"><a class="link" href="PageAccueil.php">Acceuil</a></li>
-        <li class="liste"><a class="link" href="contact.php">Contact</a></li>
-        <li class="liste"><a class="link" href="about.php">À propos</a></li>
+        <li class="liste"><a class="link" href="./accueil.php">Accueil</a></li>
+        <li class="liste"><a class="link" href="./contact.php">Contact</a></li>
+        <li class="liste"><a class="link" href="./about.php">À propos</a></li>
       </ul>
     </nav>
 

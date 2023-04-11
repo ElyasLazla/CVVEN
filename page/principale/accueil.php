@@ -7,7 +7,7 @@ session_start();
 
 <head>
     <meta charset="utf-8">
-    <title>Titre de la page</title>
+    <title>Accueil</title>
     <link rel="stylesheet" href="../asset/style/accueil.css">
     <script src="script.js"></script>
 </head>
@@ -23,7 +23,7 @@ session_start();
                     <a href="./accueil.php">CVVEN</a>
                 </div>
                 <ul class="nav_links">
-                    <li class="liste"><a class="link" href="./PageOffrePrincipale.php">Accueil</a></li>
+                    <li class="liste"><a class="link" href="./accueil.php">Accueil</a></li>
                     <li class="liste"><a class="link" href="./contact.php">Contact</a></li>
                     <li class="liste"><a class="link" href="./about.php">À propos</a></li>
                 </ul>
@@ -44,9 +44,7 @@ session_start();
             <h4>EN APESANTEUR ? VENZ PROFITEZ DE VOTRE SEJOUR CHEZ NOUS...</h4>
 
             <div class="row">
-
-                <a href="./RéservationBack/vraiformulaire.php">RESERVEZ</a>
-                <a href="./PageOffrePrincipale.php">Voir<span>&#x27f6</span></a>
+                <a href="./PageOffrePrincipale.php">Voir les offres<span>&#x27f6</span></a>
 
 
                 <span>
