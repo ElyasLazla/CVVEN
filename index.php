@@ -1,7 +1,8 @@
 <?php
-
-    phpinfo();
-
-    if (mail("lazlaelygo91@gmail.com", "test", "test youtube")) echo "Mail envoyer";
-    else echo "Impossible d'envoyer le mail";
-?>
+session_start();
+if ($_SESSION["isLogin"]) {
+    echo "connection ok";
+    /*         header("location:/acceuil.php"); */
+} else {
+    header("location: page/connexion.php");
+}
